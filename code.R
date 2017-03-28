@@ -32,17 +32,16 @@ stri_stats_general(freqs)
 # preview the sample before cleaning
 head(freqs)
 tail(freqs)
-#text cleaningPrior to corpus Tokenization and for an adequate text mining data need to be cleaned in order to extract significant features.
-The cleaning function cleans as follow:
-remove no alphanumeric
-remove stop word
-remove URLs
-remove punctuation
-remove no english words
-remove numbers
-strip white spaces
-Not all of them are necessary i will get back to this in next weeks.
-
+#(text cleaningPrior to corpus Tokenization and for an adequate text mining data need to be cleaned in order to extract significant features.
+#The cleaning function cleans as follow:
+#remove no alphanumeric
+#remove stop word
+#remove URLs
+#remove punctuation
+#remove no english words
+#remove numbers
+#strip white spaces
+#Not all of them are necessary i will get back to this in next weeks.)
 doc.vec <- VectorSource(freqs)
 mycorpus <- Corpus(doc.vec)
 summary(mycorpus)
@@ -94,7 +93,7 @@ barplot(tail(sort(trifreq),20),las=2,main="Top 20 trigrams",cex.main=1,cex.axis
         =0.75,horiz=TRUE)
 
 
-Top 20 most frequent quadrigrams
+#Top 20 most frequent quadrigrams
 dtm <- DocumentTermMatrix(mycorpus,control=list(tokenize=triTokenizer))
 quadfreq <- colSums(as.matrix(dtm))
 barplot(tail(sort(quadfreq),20),las=2,main="Top 20 quadrigrams",cex.main=1,cex.axis=0.75,horiz=TRUE)
