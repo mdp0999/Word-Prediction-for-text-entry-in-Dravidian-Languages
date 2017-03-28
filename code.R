@@ -48,7 +48,6 @@ mycorpus <- Corpus(doc.vec)
 summary(mycorpus)
 mycorpus <- tm_map(mycorpus, removePunctuation)
 mycorpus <- tm_map(mycorpus, removeNumbers)
-mycorpus <- tm_map(mycorpus, content_transformer(tolower))
 mycorpus <- tm_map(mycorpus, stripWhitespace)
 mycorpus  <- Corpus(VectorSource(mycorpus )) 
 #Document Tokenization#
@@ -63,7 +62,7 @@ tail(mycorpus)
 #further exploration like ngrams(1,2,3) frequency distribution using packages tm and RWeka
 
 #  library
-corp <-  tm_map(corp,stemDocument)
+corp <-  tm_map(mycorpus,stemDocument)
 
 #3 ngrams tokenization functions for unigrams,bigrams and trigrams
 #Set the default number of threds to use, it is needed for ngram function.
