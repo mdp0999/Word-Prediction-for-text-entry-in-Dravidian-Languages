@@ -7,9 +7,8 @@ opts_chunk$set(cache=TRUE,warning=FALSE)
 freqs1<-scan(file=file.choose(), what="char", sep="\n", encoding="UTF-8")
 freqs2<-scan(file=file.choose(), what="char", sep="\n", encoding="UTF-8")
 freqs3<-scan(file=file.choose(), what="char", sep="\n", encoding="UTF-8")
-Media files general statistics:
 
-
+#Media files general statistics:
 #Lines
 freqs1Lines <- length(freqs1)
 freqs2Lines <- length(freqs2)
@@ -56,7 +55,7 @@ mycorpus <- Corpus(doc.vec)
 summary(mycorpus)
 mycorpus <- tm_map(mycorpus, removePunctuation)
 mycorpus <- tm_map(mycorpus, removeNumbers)
-mycorpus <- tm_map(mycorpus, content_transformer(tolower))
+#mycorpus <- tm_map(mycorpus, content_transformer(tolower))
 mycorpus <- tm_map(mycorpus, stripWhitespace)
 mycorpus  <- Corpus(VectorSource(mycorpus )) 
 #Document Tokenization#
