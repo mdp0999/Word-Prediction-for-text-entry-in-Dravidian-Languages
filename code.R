@@ -59,7 +59,7 @@ mycorpus <- tm_map(mycorpus, removeNumbers)
 mycorpus <- tm_map(mycorpus, stripWhitespace)
 mycorpus  <- Corpus(VectorSource(mycorpus )) 
 #Document Tokenization#
-mycorpus <- tm_map(mycorpus, PlainTextDocument)
+#mycorpus <- tm_map(mycorpus, PlainTextDocument)
 #preview the sample after cleaning
 head(mycorpus)
 tail(mycorpus)
@@ -69,7 +69,7 @@ tail(mycorpus)
 #We need to convert our cleaned mediaSample (cmediaSample) to corpus for
 #further exploration like ngrams(1,2,3) frequency distribution using packages tm and RWeka
 #  library
-corp <-  tm_map(corp,stemDocument)
+#mycorpus <-  tm_map(mycorpus,stemDocument)
 
 #3 ngrams tokenization functions for unigrams,bigrams and trigrams
 #Set the default number of threds to use, it is needed for ngram function.
