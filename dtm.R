@@ -34,7 +34,7 @@ summary(mycorpus)
 mycorpus <- tm_map(mycorpus, removePunctuation)
 mycorpus <- tm_map(mycorpus, removeNumbers)
 mycorpus <- tm_map(mycorpus, stripWhitespace)
-mycorpus  <- Corpus(VectorSource(mycorpus )) 
+
 #Document Tokenization##
 #mycorpus <- tm_map(mycorpus, PlainTextDocument)
 #preview the sample after cleaning
