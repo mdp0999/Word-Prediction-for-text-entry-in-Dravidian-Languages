@@ -5,40 +5,30 @@ library(knitr)
 opts_chunk$set(cache=TRUE,warning=FALSE)
 
 freqs1<-scan(file=file.choose(), what="char", sep="\n", encoding="UTF-8")
-freqs2<-scan(file=file.choose(), what="char", sep="\n", encoding="UTF-8")
-freqs3<-scan(file=file.choose(), what="char", sep="\n", encoding="UTF-8")
 
 #Media files general statistics:
 #Lines
 freqs1Lines <- length(freqs1)
-freqs2Lines <- length(freqs2)
-freqs3Lines   <- length(freqs3)
 
 
 #Characters
 freqs1Nchar   <- sum(nchar(freqs1,type="chars"))
-freqs2Nchar    <- sum(nchar(freqs2,type="chars"))
-freqs3Nchar <- sum(nchar(freqs3,type="chars"))
 
 #words statistics :
 sum(stri_count_words(freqs1))
-sum(stri_count_words(freqs2))
-sum(stri_count_words(freqs3))
 
 #Other statistics
 #Summary statistics :
 stri_stats_general(freqs1)
-stri_stats_general(freqs2)
-stri_stats_general(freqs3)
 
 #Due to the dataset size and the processing time required,and my pc limtations i will only sample the freqs2 documents assuming that the sample size allowed by my pc is representative of the freqs2 raw data.
 #The exloratory analysis woud be similar for the other medias.
 set.seed(100)
 sample.size=300
-mediaSample  <- freqs2[sample(c(1:length(freqs2)),sample.size,replace=FALSE)]
+mediaSample  <- freqs1[sample(c(1:length(freqs1)),sample.size,replace=FALSE)]
 # preview the sample before cleaning
-head(freqs2)
-tail(freqs2)
+head(freqs1)
+tail(freqs1)
 #text cleaningPrior to corpus Tokenization and for an adequate text mining data need to be cleaned in order to extract significant features.
 #The cleaning function cleans as follow:
 #remove no alphanumeric
@@ -50,7 +40,7 @@ tail(freqs2)
 #strip white spaces
 #Not all of them are necessary i will get back to this in next weeks.
 
-doc.vec <- VectorSource(freqs2)
+doc.vec <- VectorSource(freqs1)
 mycorpus <- Corpus(doc.vec)
 summary(mycorpus)
 mycorpus <- tm_map(mycorpus, removePunctuation)
